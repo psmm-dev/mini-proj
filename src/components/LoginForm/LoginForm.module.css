@@ -1,8 +1,33 @@
 .container {
     display: flex;
-    width: 350px;
-    height: 300px;
-    background-color: rgb(130,130,130);
+    width: 500px;
+    height: 450px;
+    background-color: #DDBDFC;
     margin: 20px;
     border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    box-sizing: border-box;
+    opacity: 1;
+    box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.error {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    color: red;
+    font-weight: 600;
+}
+
+.logo {
+    height: 100px;
+    width: 100px;
+    filter: invert(27%) sepia(36%) saturate(500%) hue-rotate(220deg) brightness(90%) contrast(85%);
+}
+
+.title{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700px;
+    color: #8187DC;
+    font-size: 48px;
 }

@@ -12,6 +12,8 @@ function LoginForm() {
   const dispatch = useDispatch<AppDispatch>();
   const auth = useSelector((state: any) => state.auth);
   const error = auth.error;
+  const userIconSrc = "../../../public/assets/user.svg"
+  const passIconSrc = "../../../public/assets/lock.svg"
 
   const handleLogin = () => {
     dispatch(loginUser({ username, password }));
@@ -30,18 +32,24 @@ function LoginForm() {
 
   return (
     <div className={styles.container}>
+      <img className={styles.logo} src="../../../public/assets/cart.svg"></img>
+      <h1 className={styles.title}>++2Cart</h1>
       <LoginInput
         placeholder="Username"
         value={username}
         onChange={handleUsernameChange}
+        icon={userIconSrc}
       />
       <LoginInput
+        type="password"
         placeholder="Password"
         value={password}
         onChange={handlePasswordChange}
+        icon={passIconSrc}
       />
-      {error && <div className="error">{error}</div>}
-      <LoginButton label="Login" onLogin={handleLogin} />
+      <LoginButton label="LOGIN" onLogin={handleLogin} />
+
+      {error && <div className={styles.error}>{error}</div>}
     </div>
   );
 }
