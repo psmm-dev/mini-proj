@@ -25,7 +25,7 @@ Core React Components (with possible Lit replacements)
 - LoginForm (React)
     Should stay React (handles state, submit, navigation).
 
-- TextInput (Lit)
+- LoginInput (Lit)
     Could be a Lit component, wrapped with @lit-labs/react.
     Reusable across React and non-React projects.
 

@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { LoginButtonWrapper as LoginButton } from "../../ui/Button/LoginButtonWrapper";
-import { TextInputWrapper as TextInput } from "../../ui/TextInput/TextInputWrapper";
+import { LoginInputWrapper as LoginInput } from "../../ui/LoginInput/LoginInputWrapper";
 import { loginUser } from "../../store/features/authSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../store/store";
+import styles from "./LoginForm.module.css";
 
 function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch<AppDispatch>();
+  const auth = useSelector((state: any) => state.auth);
+  const error = auth.error;
 
   const handleLogin = () => {
     dispatch(loginUser({ username, password }));
@@ -26,20 +29,19 @@ function LoginForm() {
   };
 
   return (
-    <div className="login-form">
-      <TextInput
-        label="Username"
-        placeholder="username"
+    <div className={styles.container}>
+      <LoginInput
+        placeholder="Username"
         value={username}
         onChange={handleUsernameChange}
       />
-      <TextInput
-        label="Password"
-        placeholder="password"
+      <LoginInput
+        placeholder="Password"
         value={password}
         onChange={handlePasswordChange}
       />
-      <LoginButton label="Test" onLogin={handleLogin} />
+      {error && <div className="error">{error}</div>}
+      <LoginButton label="Login" onLogin={handleLogin} />
     </div>
   );
 }

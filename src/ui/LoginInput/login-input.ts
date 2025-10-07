@@ -1,12 +1,11 @@
 import { html, css, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
-@customElement("text-input")
-export class TextInput extends LitElement {
+@customElement("login-input")
+export class LoginInput extends LitElement {
   static styles = css``;
 
   @property() placeholder = "insert text here";
-  @property() label = "Label";
   @property() value = "";
 
   handleChange(e: Event) {
@@ -19,8 +18,7 @@ export class TextInput extends LitElement {
   }
 
   render() {
-    return html`<span>${this.label}: </span>
-      <input
+    return html`<input
         type="text"
         placeholder="${this.placeholder}"
         value="${this.value}"
