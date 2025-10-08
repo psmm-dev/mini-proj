@@ -1,10 +1,12 @@
 .visible {
     opacity: 1;
+    z-index: 10;
 }
 
 .hidden {
     opacity: 0;
     overflow: hidden;
+    z-index: -1;
 }
 
 .loginContainer {
@@ -14,7 +16,6 @@
     display: flex;
     position: absolute;
     background-color: #ADA7FF;
-    z-index: 10;
     top: 0;
     left: 0;
     height: 100%;

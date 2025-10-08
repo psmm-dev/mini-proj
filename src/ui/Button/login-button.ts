@@ -27,7 +27,7 @@ export class LoginButton extends LitElement {
     }
   `;
 
-  @property() label = "label";
+  @property() label:string = "label";
 
   handleClick(e: MouseEvent) {
     e.stopPropagation();

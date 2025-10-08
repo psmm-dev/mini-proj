@@ -25,9 +25,44 @@
     filter: invert(27%) sepia(36%) saturate(500%) hue-rotate(220deg) brightness(90%) contrast(85%);
 }
 
-.title{
+.title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700px;
     color: #8187DC;
     font-size: 48px;
+}
+
+.shake {
+    animation: shake 0.5s;
+    animation-iteration-count: 1;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0) rotate(0);
+    }
+
+    35% {
+        transform: translateY(0) rotate(0);
+    }
+
+    85% {
+        transform: translateY(0) rotate(0);
+    }
+
+    89% {
+        transform: translateY(-2px) rotate(-8deg);
+    }
+
+    93% {
+        transform: translateY(-2px) rotate(8deg);
+    }
+
+    98% {
+        transform: translateY(-2px) rotate(-6deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(0);
+    }
 }

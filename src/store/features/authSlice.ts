@@ -11,7 +11,7 @@ export const loginUser = createAsyncThunk(
     const response = await fetch('/public/users.json');
     const users = await response.json();
     const user = users.find(u => u.username === credentials.username && u.password === credentials.password);
-    if (!user) throw new Error('Invalid credentials')
+    if (!user) throw new Error('Invalid username or password')
     return user
 });
 
