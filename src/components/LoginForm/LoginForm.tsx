@@ -1,23 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { LoginButtonWrapper as LoginButton } from "../../ui/Button/LoginButtonWrapper";
-import { LoginInputWrapper as LoginInput } from "../../ui/LoginInput/LoginInputWrapper";
-import { loginUser } from "../../store/features/authSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch } from "../../store/store";
 import styles from "./LoginForm.module.css";
+
+// component imports
+import { Button } from "@ui/Button/ReactButtonWrapper";
+import { Input } from "@ui/Input/ReactInputWrapper";
+import { Text } from "@ui/Text/ReactTextWrapper";
+
+// redux imports
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "@store/features/authSlice";
+import { AppDispatch } from "@store/store";
+
+// asset imports
+import userIcon from "@assets/user.svg";
+import passIcon from "@assets/lock.svg";
+import loginIcon from "@assets/login.svg";
+import { Logo } from "@ui/Logo/ReactLogoWrapper";
 
 function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch<AppDispatch>();
   const auth = useSelector((state: any) => state.auth);
-  const {error, isAuthenticated} = auth
-  const userIconSrc = "../../../public/assets/user.svg";
-  const passIconSrc = "../../../public/assets/lock.svg";
+  const { error, isAuthenticated, loading } = auth;
   const [btnClass, setBtnClass] = useState("");
 
-
-  console.log({username, password, isAuthenticated, error});
   useEffect(() => {
     if (error) {
       setBtnClass(styles.shake);
@@ -26,16 +33,16 @@ function LoginForm() {
       setBtnClass("");
     }, 500);
   }, [error]);
-  
+
   useEffect(() => {
-    if (isAuthenticated) { 
-      console.log("reset input");
+    if (isAuthenticated) {
       setUsername("");
       setPassword("");
     }
   }, [isAuthenticated]);
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
     dispatch(loginUser({ username, password }));
   };
 
@@ -51,25 +58,30 @@ function LoginForm() {
 
   return (
     <div className={styles.container}>
-      <img className={styles.logo} src="../../../public/assets/cart.svg"></img>
-      <h1 className={styles.title}>++2Cart</h1>
-      <LoginInput
+      <Logo variant="large" />
+      <Text text="++2Cart" variant="large" />
+      <Input
         id="username-input"
         placeholder="Username"
         value={username}
         onChange={handleUsernameChange}
-        icon={userIconSrc}
+        icon={userIcon}
       />
-      <LoginInput
+      <Input
         id="password-input"
         type="password"
         placeholder="Password"
         value={password}
         onChange={handlePasswordChange}
-        icon={passIconSrc}
+        icon={passIcon}
       />
-      <LoginButton label="LOGIN" onLogin={handleLogin} className={btnClass} />
-
+      <Button
+        label="LOGIN"
+        onClick={handleLogin}
+        className={btnClass}
+        isLoading={loading}
+        icon={loginIcon}
+      />
       {error && <div className={styles.error}>{error}</div>}
     </div>
   );

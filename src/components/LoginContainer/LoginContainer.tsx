@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./LoginContainer.module.css";
-import LoginForm from "../LoginForm/LoginForm";
+
+import LoginForm from "@components/LoginForm/LoginForm";
 import { useSelector } from "react-redux";
 
 const LoginContainer = () => {

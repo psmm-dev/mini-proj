@@ -1,14 +1,13 @@
 import React from "react";
 import styles from "./MainPage.module.css";
-import { logout } from "../store/features/authSlice";
-import { useDispatch, useSelector } from "react-redux";
+
+// component imports
+import Header from "@components/Header/Header";
+import MainContent from "@components/MainContent/MainContent";
+
+import { useSelector } from "react-redux";
 
 const MainPage = () => {
-  const dispatch = useDispatch();
-
-  const handleLogout = () => {
-    dispatch(logout());
-  };
   const auth = useSelector((state: any) => state.auth);
   const isAuthenticated = auth.isAuthenticated;
 
@@ -16,10 +15,10 @@ const MainPage = () => {
     ? styles.container
     : styles.container + " " + styles.blur;
   return (
-    <>
-      <h1 className={containerClass}>Hello World!</h1>
-      <button className={styles.tempBtnStyle} onClick={handleLogout}>LOGOUT</button>
-    </>
+    <div className={containerClass}>
+      <Header />
+      <MainContent />
+    </div>
   );
 };
 

@@ -1,23 +1,50 @@
 .visible {
-    opacity: 1;
     z-index: 10;
+    animation: zoomInTopRight 0.5s forwards,  z-index 0.5s step-end;
 }
 
 .hidden {
-    opacity: 0;
-    overflow: hidden;
     z-index: -1;
+    overflow: hidden;
+    animation: zoomOutTopRight 0.5s forwards; 
+    transition: z-index 2s;
 }
 
 .loginContainer {
-    transition: opacity 1s ease-in-out;
     justify-content: center;
     align-items: center;
     display: flex;
     position: absolute;
-    background-color: #ADA7FF;
+    background-color: #DEC9E9;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
+    transform: scale(0) translate(50%, -50%);
+    transform-origin: top right;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes zoomInTopRight {
+  from {
+    transform: scale(0) translate(50%, -50%);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translate(0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomOutTopRight {
+  from {
+    transform: scale(1) translate(0, 0);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0) translate(50%, -50%);
+    opacity: 0;
+  }
 }

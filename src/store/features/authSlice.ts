@@ -8,7 +8,8 @@ export type Credentials = {
 export const loginUser = createAsyncThunk(
     'auth/loginUser',
     async (credentials: Credentials) => {
-    const response = await fetch('/public/users.json');
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    const response = await fetch('/users.json');
     const users = await response.json();
     const user = users.find(u => u.username === credentials.username && u.password === credentials.password);
     if (!user) throw new Error('Invalid username or password')

@@ -1,68 +1,55 @@
 .container {
     display: flex;
-    width: 500px;
-    height: 450px;
-    background-color: #DDBDFC;
+    width: 460px;
+    height: 460px;
+    background-color: #B185DB;
     margin: 20px;
     border-radius: 10px;
     flex-direction: column;
     align-items: center;
-    padding-top: 20px;
+    padding-top: 60px;
     box-sizing: border-box;
     opacity: 1;
     box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    gap: 8px;
 }
 
 .error {
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-    color: red;
+    color: #921010;
     font-weight: 600;
-}
-
-.logo {
-    height: 100px;
-    width: 100px;
-    filter: invert(27%) sepia(36%) saturate(500%) hue-rotate(220deg) brightness(90%) contrast(85%);
 }
 
 .title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700px;
-    color: #8187DC;
+    color: #6247AA;
     font-size: 48px;
 }
 
 .shake {
-    animation: shake 0.5s;
+    animation: shake 0.5s ease-in-out both;
     animation-iteration-count: 1;
 }
 
 @keyframes shake {
     0% {
-        transform: translateX(0) rotate(0);
+        transform: translateX(0);
     }
 
-    35% {
-        transform: translateY(0) rotate(0);
+    25% {
+        transform: translateX(-6px);
     }
 
-    85% {
-        transform: translateY(0) rotate(0);
+    50% {
+        transform: translateX(6px);
     }
 
-    89% {
-        transform: translateY(-2px) rotate(-8deg);
-    }
-
-    93% {
-        transform: translateY(-2px) rotate(8deg);
-    }
-
-    98% {
-        transform: translateY(-2px) rotate(-6deg);
+    75% {
+        transform: translateX(-4px);
     }
 
     100% {
-        transform: translateY(0) rotate(0);
+        transform: translateX(0);
     }
 }
