@@ -19,6 +19,12 @@ export class LitText extends LitElement {
         font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
     }
 
+    .bold {
+        font-size: 16px;
+        font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+        font-weight: 600;
+    }
+
     .large {
         font-size: 48px;
         font-weight: 600;
@@ -30,7 +36,7 @@ export class LitText extends LitElement {
   `;
 
   @property() text: string = "";
-  @property() variant: "header" | "regular" | "large" | "greetings" = "regular";
+  @property() variant: "header" | "regular" | "large" | "greetings" | "bold" = "regular";
 
   render() {
     return html`<span class=${this.variant}>${this.text}</span>`;

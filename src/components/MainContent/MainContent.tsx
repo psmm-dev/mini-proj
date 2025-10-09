@@ -1,10 +1,14 @@
 import React from 'react';
 import styles from './MainContent.module.css';
 
+import ItemList from '@components/ItemList/ItemList';
+import Cart from '@components/Cart/Cart';
+
 const MainContent = () => {
     return (
         <div className={styles.container}>
-            <h1>MAIN CONTENT</h1>
+            <ItemList />
+            <Cart />
         </div>
     );
 }

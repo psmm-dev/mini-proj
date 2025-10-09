@@ -1,0 +1,34 @@
+.container {
+    display: flex;
+    flex: 0 0 65%;
+    background-color: #edf2fb;
+    flex-direction: column;
+    gap: 12px;
+    box-sizing: border-box;
+}
+
+.itemListContainer {
+    display: flex;
+    flex: 0 0 90%;
+    background-color: #edf2fb;
+    padding: 10px;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+
+.searchBar {
+    display: flex;
+    margin: 0 10px;
+    position: relative;
+    gap: 8px;
+    align-items: center;
+    position: relative
+}
+
+.searchButton {
+    width: 20%
+}
+
+.searchBox {
+    width: 60%
+}

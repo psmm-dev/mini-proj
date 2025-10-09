@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex: 0 0 30%;
+    padding: 4px;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 30%;
+    width: 30%;
+    background-color: #DAC3E8;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.4);
+    gap: 4px;
+}
+
+.bottomRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}

@@ -51,10 +51,13 @@ export class LitButton extends LitElement {
     }
 
     .icon{
-      padding-right: 8px;
       height: 20px;
       width: 20px;
       filter: invert(91%) sepia(9%) saturate(654%) hue-rotate(236deg) brightness(103%) contrast(95%);
+    }
+
+    .icon-padding{
+      padding-right: 8px;
     }
   `;
 
@@ -73,8 +76,10 @@ export class LitButton extends LitElement {
   }
 
   buttonContent() {
-    if(this.icon !== "") {
-      return html`<img src=${this.icon} class="icon" /> ${this.label}`;
+    if(this.icon !== "" && this.label !== "") {
+      return html`<img src=${this.icon} class="icon icon-padding" /> ${this.label}`;
+    }else if (this.icon !== "" && this.label === "") {
+      return html`<img src=${this.icon} class="icon" />`
     }else{
       return html`${this.label}`;
     }

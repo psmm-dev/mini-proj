@@ -3,6 +3,7 @@
     flex: 0 0 85%;
     margin: 0;
     padding: 20px;
-
+    box-sizing: border-box;
     background-color: #edf2fb;
+    flex-direction: row;
 }

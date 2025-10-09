@@ -33,6 +33,6 @@ export class LitLogo extends LitElement {
   @property() variant: "large" | "medium" = "medium";
 
   render() {
-    return html`<img class=${this.variant + " logo"} src=${logo}/>`;
+    return html`<img class=${this.variant + " logo"} src=${logo} alt="Cart Logo"/>`;
   }
 }

@@ -1,0 +1,12 @@
+.container {
+    padding: 20px;
+    background-color: #edf2fb;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 35%;
+    box-sizing: border-box;
+
+    border-left: 3px groove #6247AA;
+    box-shadow: -3px 0 4px 4px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
